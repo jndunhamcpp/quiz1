@@ -10,17 +10,19 @@ int main(void)
     PtrToEmployee searchEmployeeByNumber(const Employee table[], int sizeTable, long numberToFind);
     PtrToEmployee searchEmployeeByName(const Employee table[], int sizeTable, char * nameToFind);
 
+    int id_search = 1045;
+    char name_search[20] = "Tammy Franklin";
 
     //defined in employeeTable.c
     extern Employee EmployeeTable[];
     extern const int EmployeeTableEntries;
     PtrToEmployee matchPtr; //Declaration
-    matchPtr = searchEmployeeByNumber(EmployeeTable, EmployeeTableEntries, 1045);
+    matchPtr = searchEmployeeByNumber(EmployeeTable, EmployeeTableEntries, id_search);
 
     //Example not found
     if (matchPtr != NULL)
     {
-        printf("Employee ID 1045 is in record %d\n", matchPtr - EmployeeTable);
+        printf("\nEmployee ID %d is in record %ld\n", id_search, matchPtr - EmployeeTable);
     }
     else
     {
@@ -28,10 +30,10 @@ int main(void)
     }
 
     //Example found
-    matchPtr = searchEmployeeByName(EmployeeTable, EmployeeTableEntries, "Tony Bobcat");
+    matchPtr = searchEmployeeByName(EmployeeTable, EmployeeTableEntries, name_search);
     if (matchPtr != NULL)
     {
-        printf("Employee Tony Bobcat is in record %d\n", matchPtr - EmployeeTable);
+        printf("Employee %s is in record %d\n", name_search, matchPtr - EmployeeTable);
     }
     else
     {
