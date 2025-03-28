@@ -46,16 +46,30 @@ int magic_square_test(int square[3][3])
     return 1;
 }
 
+void print_square(int square[3][3])
+{
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            printf("%d ", square[i][j]);
+        }
+        printf("\n");
+    }
+}
+
 void test_square(int square[3][3])
 {
     if (magic_square_test(square) == 1)
     {
-        printf("This is a magic square\n");
+        printf("This is a magic square:\n");
     }
     else
     {
-        printf("This is not a magic square\n");
+        printf("This is not a magic square:\n");
     }
+    print_square(square);
+    printf("\n");
 }
 
 int main()
